@@ -33,7 +33,9 @@ Rails.application.routes.draw do
   resources :management_clients, only: [:show]
   resources :property_clients, only: [:show]
 
-  root to: "static_pages#home"
+  # NOTE: '/' needs to be places at the bottom of the list because we do not
+  # want other paths to be ignored.
+  root to: "react_pages#index"
 
   # For viewing delivered emails in development environment.
   if Rails.env.development?

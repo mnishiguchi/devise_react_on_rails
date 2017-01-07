@@ -23,3 +23,9 @@ coverage/*
 coverage/.last_run.json
 coverage/.resultset.json
 coverage/.resultset.json.lock
+# React on Rails
+npm-debug.log*
+node_modules
+
+# Generated js bundles
+/app/assets/webpack/*
