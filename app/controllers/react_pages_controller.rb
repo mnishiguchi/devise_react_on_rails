@@ -1,5 +1,9 @@
 class ReactPagesController < ApplicationController
+
   def index
-    @hello_world_props = { name: "Stranger" }
+    @props = {
+      name:       "Stranger",
+      isLoggedIn: identity_signed_in?
+    }
   end
 end

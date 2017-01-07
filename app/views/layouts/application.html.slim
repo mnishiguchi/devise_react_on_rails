@@ -13,7 +13,7 @@ html
     /[if lt IE 9]
       script [src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"]
   body
-    = render 'layouts/site_header'
+    / = render 'layouts/site_header'
 
     #flash_message
       = render 'layouts/flash_message'
@@ -21,5 +21,11 @@ html
     .container
       main = yield
 
-    = render 'layouts/site_footer'
+      - if current_identity
+        | Server side: You are logged in. (ID: #{current_identity.id})
+      - else 
+        = render 'layouts/signup_button'
+        = render 'layouts/login_button'
+    
+    / = render 'layouts/site_footer'
     = render 'layouts/debug_box'
