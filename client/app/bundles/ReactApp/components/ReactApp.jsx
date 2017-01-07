@@ -1,19 +1,5 @@
 import React, { PropTypes as T } from 'react'
 
-// NOTE: Do not make auth links react components because react will complain
-// about data-target and data-toggle attributes as unknown props.
-// The auth forms are hidden in the app/views/layouts/application template and
-// a modal will open when a link is clicked.
-const logOutLink = (
-  <a rel="nofollow" data-method="delete" href="/auth/logout">Log out</a>
-)
-const logInLink = (
-  <a data-target="#login_modal__target" data-toggle="modal" href="#">Log in</a>
-)
-const signUpLink = (
-  <a data-target="#signup_modal__target" data-toggle="modal" href="#">Sign up</a>
-)
-
 export default class ReactApp extends React.Component {
 
   static propTypes = {
@@ -36,12 +22,22 @@ export default class ReactApp extends React.Component {
   render() {
     const { isLoggedIn } = this.props
 
-    const authLinks = (
-      <div>
-        {signUpLink}{' | '}{logInLink}
-      </div>
+    // NOTE: Do not make auth links react components because react will complain
+    // about data-target and data-toggle attributes as unknown props.
+    // The auth forms are hidden in the app/views/layouts/application template and
+    // a modal will open when a link is clicked.
+    const logOutLink = (
+      <a rel="nofollow" data-method="delete" href="/auth/logout">Log out</a>
     )
 
+    const authLinks = (
+      <div>
+        <a onClick={e => this.openSignUpModal(e)}>Sign up</a>
+        {' | '}
+        <a onClick={e => this.openLogInModal(e)}>Log in</a>
+      </div>
+    )
+    
     return (
       <div className="alert alert-info">
         {isLoggedIn ? logOutLink : authLinks}
@@ -65,14 +61,13 @@ export default class ReactApp extends React.Component {
     )
   }
 
-  // componentDidMount() {
-  //   // Detect clicks from outside the react app.
-  //   $('#document_wrapper').on('click', (e) => this.handleDocumentClick(e))
-  // }
-  //
-  // handleDocumentClick(event) {
-  //   console.log(event.target)
-  // }
+  openSignUpModal(e) {
+    document.querySelector('#signup_modal__target.modal').classList.add('is-active')
+  }
+
+  openLogInModal(e) {
+    document.querySelector('#login_modal__target.modal').classList.add('is-active')
+  }
 
   updateName(name) {
     this.setState({ name })
