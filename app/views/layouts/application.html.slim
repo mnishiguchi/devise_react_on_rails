@@ -24,8 +24,10 @@ html
       - if current_identity
         | Server side: You are logged in. (ID: #{current_identity.id})
       - else 
-        = render 'layouts/signup_button'
-        = render 'layouts/login_button'
+        #signup_modal__target.modal.fade [aria-labelledby="signup_modal__label" role="dialog" tabindex="-1"]
+          = render "layouts/signup_modal"
+        #login_modal__target.modal.fade [aria-labelledby="login_modal__label" role="dialog" tabindex="-1"]
+          = render "layouts/login_modal"
     
     / = render 'layouts/site_footer'
     = render 'layouts/debug_box'
