@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  include Pundit
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  # include Pundit
+  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   protect_from_forgery with: :exception
   before_action :set_current_identity
 
@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
 
   # Set up the first arguemnt of Pundit's Policies.
   # NOTE: By default, Pundit uses current_user.
-  def pundit_user
-    current_identity
-  end
+  # def pundit_user
+  #   current_identity
+  # end
 
   private
 
