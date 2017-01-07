@@ -1,0 +1,5 @@
+- if Rails.env.development?
+  .well
+    .container
+      = debug(params)
+      = link_to "My mailbox", letter_opener_web_path, class: "btn btn-primary"

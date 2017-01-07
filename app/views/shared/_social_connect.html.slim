@@ -1,0 +1,13 @@
+-# Required props: provider as a symbol (:facebook, :google_oauth2, :twitter)
+
+- connected = current_identity.try(:social_profile, provider)
+- icon_name = (provider == :google_oauth2) ? "google-plus" : provider
+
+- if connected
+  = link_to fa_icon("fw #{icon_name}", text: "Disconnect"),
+    social_profile_path(current_identity.social_profile(provider)), method: :delete,
+    class: "btn btn-default btn-disconnect #{provider}"
+- else
+  = link_to fa_icon("fw #{icon_name}", text: "Connect"),
+    eval("identity_#{provider}_omniauth_authorize_path"),
+    class: "btn btn-primary btn-connect #{provider}"

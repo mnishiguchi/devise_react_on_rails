@@ -1,0 +1,103 @@
+@mixin btn-omniauth {
+  border-radius: 50%;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: $blue-darker;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn.outline {
+	background: none;
+	padding: 12px 22px;
+}
+.btn-primary.outline {
+	border: 2px solid $blue-darker;
+	color: $blue-darker;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+	color: #33a6cc;
+	border-color: #33a6cc;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+	border-color: #007299;
+	color: #007299;
+	box-shadow: none;
+}
+
+// Authentication
+
+.signup_submit, .login_submit {
+  margin: .5rem 0 2rem 0;
+}
+.btn-omniauth-facebook {
+  @include btn-omniauth;
+  color: #fff;
+  background-color: $facebook;
+  border-color: lighten($facebook, 5%);
+  &:hover {
+    color: #fff;
+    background-color: lighten($facebook, 5%);
+    border-color: lighten($facebook, 5%);
+  }
+}
+.btn-omniauth-google {
+  @include btn-omniauth;
+  color: #fff;
+  background-color: $googleplus;
+  border-color: lighten($googleplus, 5%);
+  &:hover {
+    color: #fff;
+    background-color: lighten($googleplus, 5%);
+    border-color: lighten($googleplus, 5%);
+  }
+}
+.btn-omniauth-twitter {
+  @include btn-omniauth;
+  color: white;
+  background-color: $twitter;
+  &:hover {
+    color: white;
+    background-color: lighten($twitter, 2%);
+  }
+}
+.btn-sign-in-with-email {
+  color: $gray-3;
+  background-color: white;
+  &:hover {
+    color: $gray-4;
+    background-color: white;
+  }
+}
+
+.btn-search {
+  padding: 6px;
+  width: auto;
+}

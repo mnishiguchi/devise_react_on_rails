@@ -1,0 +1,15 @@
+// http://guides.rubyonrails.org/working_with_javascript_in_rails.html#form-for
+// http://guides.rubyonrails.org/layouts_and_rendering.html#rendering-collections
+
+<% if resource.errors.present? %>
+  // After unsuccessful signup, re-render the form with error messages.
+  $('#signup_modal__target').html(
+    '<%= j(render "static_pages/signup_modal") %>'
+  );
+<% else %>
+  // Set a message.
+  <% flash[:info] = I18n.t("devise.confirmations.send_instructions") %>
+
+  // link_to is not available in a template so we use js equivalent here.
+  window.location.href="/"
+<% end %>

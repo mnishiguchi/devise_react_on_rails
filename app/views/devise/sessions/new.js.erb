@@ -1,0 +1,7 @@
+// http://guides.rubyonrails.org/working_with_javascript_in_rails.html#form-for
+// http://guides.rubyonrails.org/layouts_and_rendering.html#rendering-collections
+
+// Show error message using flash because session does not have Active Records errors.
+$('#login_modal__errors').html('').append(
+  '<div class="alert alert-danger"><%= j(I18n.t("devise.failure.invalid")) %></div>'
+);

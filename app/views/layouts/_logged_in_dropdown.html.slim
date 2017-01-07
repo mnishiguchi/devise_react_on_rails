@@ -1,0 +1,11 @@
+.dropdown.gravatar_dropdown
+  a.dropdown-toggle[href="#" id="dropdownMenu1" data-toggle="dropdown"
+    role="button" aria-haspopup="true" aria-expanded="false"]
+    span.shrink
+    = social_image_for(current_identity, size: 32) || gravatar_for(current_identity, size: 32)
+    span.caret
+  ul.dropdown-menu[ aria-labelledby="dropdownMenu1"]
+    li = link_to_user_page("My page")
+    li = link_to_backend_user_page("Backdoor") if current_backend_user
+    li = link_to "Settings", edit_identity_registration_path
+    li = link_to "Log out", destroy_identity_session_path, method: :delete

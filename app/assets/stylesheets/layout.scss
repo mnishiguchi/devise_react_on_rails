@@ -1,0 +1,158 @@
+body {
+  background-color: $body-bg;
+}
+
+main {
+  min-height: 80vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.alert {
+  border-radius: 0;
+}
+
+.flash_message.alert {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // z-index: 1001;
+  width: 100vw;
+  margin-bottom: 0;
+  opacity: .95;
+  min-height: 58px;
+}
+
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: $blue;
+}
+
+.search_box {
+  border-radius: 0;
+  background: $gray-1 url(https://www.apartmentshowcase.com/stylesheets/css/images/temp/intro.jpg) no-repeat center;
+  color: white;
+}
+
+
+// ===
+// site header
+// ===
+
+
+.site_header {
+  background-color: $header-color;
+  #logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 2.0rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin: 0 1rem 0 0;
+    padding: 1.5rem 0;
+    font-weight: bold;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+    .flex & {
+      margin-right: auto;
+    }
+  }
+
+  span.shrink {
+    display: none;
+    transition: all 0.4s ease;
+    @media only screen and (min-width : 480px) {
+      display: inline-block;
+    }
+  }
+
+  .nav-item {
+    display: block;
+    color: white;
+    height: 45px;
+    line-height: 1;
+    padding: 24px 0 0 16px;
+  }
+
+  ul.non-logged-in {
+    display: flex;
+    justify-content: flex-end;
+    height: 45px;
+    line-height: 45px;
+    li {
+      list-style: none;
+      a {
+        display: block;
+        color: white;
+        height: 45px;
+        line-height: 1;
+        padding: 24px 0 0 16px;
+      }
+    }
+  }
+}
+
+.gravatar_dropdown {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  a {
+    color: $gray_1;
+    text-decoration: none;
+  }
+  ul {
+    position: relative;
+    top: 55px;
+    left: 65px;
+  }
+  .dropdown-menu {
+    right: 0;
+  }
+}
+
+.gravatar_link {
+  padding: 0 !important;
+}
+.gravatar {
+  margin: .7rem;
+  border: 2px solid white;
+  border-radius: 4px;
+}
+
+
+
+// ===
+// site footer
+// ===
+
+
+footer {
+  font-family: $heading-font-family;
+  vertical-align: middle;
+  padding: 4rem 0;
+  color: $gray-2;
+  background: $footer-color;
+  .contact-info {
+    display: inline-block;
+    padding: 0 5px;
+  }
+  .social-links {
+    display: inline-block;
+    float: right;
+    font-size: 1.0em;
+    a {
+      color:inherit;
+      margin: 0 .5rem;
+      color: $link-hover-color;
+    }
+    a:hover {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}

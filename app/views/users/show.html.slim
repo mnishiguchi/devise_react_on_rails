@@ -1,0 +1,26 @@
+- provide(:title, @user&.name)
+
+h1.page-header 
+  = @user&.name || "User ##{@user.id}"
+
+h3 Registration information (Identity)
+
+- if @user
+  .table-responsive
+    table.table.borderd
+      thead
+        tr
+          th id
+          th email
+          th type
+          th backend_user_id
+          th user_id
+      tbody
+        tr
+          td = @user.identity.id
+          td = @user.identity.email
+          td = @user.identity.backend_user_type&.underscore&.humanize || "General user"
+          td = @user.identity.backend_user_id || "N/A"
+          td = @user.identity.user_id
+- else
+  p @user is not defined...

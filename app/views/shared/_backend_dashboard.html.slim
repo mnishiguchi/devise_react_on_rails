@@ -1,0 +1,33 @@
+- provide(:title, current_backend_user.name)
+
+h1.page-header 
+  = current_backend_user.name
+
+h3 Ruby representation of me as a backend user
+
+.well
+  p = current_backend_user.inspect
+
+hr
+
+h3 All account_executives
+
+ul
+  - AccountExecutive.all.each do |person|
+    li = person.inspect
+    
+hr
+
+h3 All management_clients
+
+ul
+  - ManagementClient.all.each do |person|
+    li = person.inspect
+    
+hr
+
+h3 All property_clients
+
+ul
+  - PropertyClient.all.each do |person|
+    li = person.inspect

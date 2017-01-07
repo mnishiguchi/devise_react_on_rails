@@ -1,0 +1,16 @@
+.row
+  .col-sm-offset-2.col-sm-8
+    .panel.panel-default
+      .panel-heading
+        .h3 Enter email address to sign in or create account on ApartmentShowoff
+      .panel-body
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = f.error_notification
+          .form-inputs
+            = f.input :email, required: true, autofocus: true
+            .help-block
+              a[href="/"] Or sign in with Google or Twitter
+          .form-group
+            .btn-group
+              button[type="submit" class="btn btn-primary outline signup_submit"]
+                = fa_icon("fw envelope-o", text: "Email me a link to sign in")

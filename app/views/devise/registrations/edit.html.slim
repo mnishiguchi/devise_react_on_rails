@@ -1,0 +1,71 @@
+= provide(:title, "Settings")
+
+- store_location
+
+.row
+  .col-sm-offset-2.col-sm-8
+
+    h1.h2.page-header Settings
+
+    .well
+      .h3.page-header My data
+
+      .table-responsive
+        table.table.table-condensed
+          thead
+            tr
+              th Sign in count
+              th Last signed in
+          tbody
+            tr
+              td= current_identity.sign_in_count
+              td= current_identity.last_sign_in_at
+
+
+    .well
+      .h3.page-header Email settings
+
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.input :email, required: true, autofocus: false, label: "Your email"
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+            p Currently waiting confirmation for: #{resource.unconfirmed_email}
+
+        .form-group
+          = f.button :button, "Update", class: "submit btn btn-primary outline",
+          data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Processing..." }
+
+    .well
+      .h3.page-header Connections
+
+      .table-responsive
+        table.table.borderd
+          thead
+            tr
+              th
+              th
+              th
+          tbody
+            tr
+              - profile = current_identity.social_profile :facebook
+              td Facebook
+              td = social_profile_image(profile, size: 60)
+              td = render 'shared/social_connect', provider: :facebook
+            tr
+              - profile = current_identity.social_profile :google_oauth2
+              td Google
+              td = social_profile_image(profile, size: 60)
+              td = render 'shared/social_connect', provider: :google_oauth2
+            tr
+              - profile = current_identity.social_profile :twitter
+              td Twitter
+              td = social_profile_image(profile, size: 60)
+              td = render 'shared/social_connect', provider: :twitter
+    .well
+      .h3.page-header Delete account
+      p
+        = button_to "Delete account", registration_path(resource_name),
+          data: { confirm: "Are you sure?", disable_with: "<i class='fa fa-spinner fa-spin'></i> Processing..." },
+          method: :delete, class: "submit btn btn-danger"
