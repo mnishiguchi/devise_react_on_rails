@@ -12,6 +12,11 @@ html
     = csrf_meta_tags
     /[if lt IE 9]
       script [src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"]
+      
+    link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"
+    
+    script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"
+    
   body
     / = render 'layouts/site_header'
 
@@ -24,9 +29,9 @@ html
       - if current_identity
         | Server side: You are logged in. (ID: #{current_identity.id})
       - else 
-        #signup_modal__target.modal.fade [aria-labelledby="signup_modal__label" role="dialog" tabindex="-1"]
+        #signup_modal__target.modal.fade
           = render "layouts/signup_modal"
-        #login_modal__target.modal.fade [aria-labelledby="login_modal__label" role="dialog" tabindex="-1"]
+        #login_modal__target.modal.fade
           = render "layouts/login_modal"
     
     / = render 'layouts/site_footer'

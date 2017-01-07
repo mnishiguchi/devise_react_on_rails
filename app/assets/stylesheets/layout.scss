@@ -10,10 +10,6 @@ main {
   display: flex;
 }
 
-.alert {
-  border-radius: 0;
-}
-
 .flash_message.alert {
   // position: fixed;
   // top: 0;
@@ -23,6 +19,7 @@ main {
   margin-bottom: 0;
   opacity: .95;
   min-height: 58px;
+  border-radius: 0;
 }
 
 .turbolinks-progress-bar {
@@ -30,16 +27,10 @@ main {
   background-color: $blue;
 }
 
-.search_box {
-  border-radius: 0;
-  background: $gray-1 url(https://www.apartmentshowcase.com/stylesheets/css/images/temp/intro.jpg) no-repeat center;
-  color: white;
-}
 
-
-// ===
+//---
 // site header
-// ===
+//---
 
 
 .site_header {
@@ -125,10 +116,9 @@ main {
 }
 
 
-
-// ===
+//---
 // site footer
-// ===
+//---
 
 
 footer {
@@ -154,5 +144,59 @@ footer {
       text-decoration: none;
       color: white;
     }
+  }
+}
+
+
+//---
+// Forms
+//---
+
+
+.help-block {
+  color: #a9445b;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+
+//---
+// Buttons
+//---
+
+
+@mixin btn-omniauth {
+  padding: 1rem;
+  margin-right: 1rem;
+}
+.btn-omniauth-facebook {
+  @include btn-omniauth;
+  color: #fff;
+  background-color: $facebook;
+  border-color: lighten($facebook, 5%);
+  &:hover {
+    color: #fff;
+    background-color: lighten($facebook, 5%);
+    border-color: lighten($facebook, 5%);
+  }
+}
+.btn-omniauth-google {
+  @include btn-omniauth;
+  color: #fff;
+  background-color: $googleplus;
+  border-color: lighten($googleplus, 5%);
+  &:hover {
+    color: #fff;
+    background-color: lighten($googleplus, 5%);
+    border-color: lighten($googleplus, 5%);
+  }
+}
+.btn-omniauth-twitter {
+  @include btn-omniauth;
+  color: white;
+  background-color: $twitter;
+  &:hover {
+    color: white;
+    background-color: lighten($twitter, 2%);
   }
 }
