@@ -14,8 +14,9 @@ Rails.application.routes.draw do
     path_names: { sign_up: 'signup', sign_in: 'login', sign_out: 'logout' }
 
   # Ask for email address after successful OAuth.
-  match "/auth/:id/finish_signup" => "identities#finish_signup",
-    via: [:get, :patch], as: :identity_finish_signup
+  # match "/auth/:id/finish_signup" => "identities#finish_signup",
+  #   via: [:get, :patch], as: :identity_finish_signup
+  resources :email_confirmations, only: [:show, :update]
 
   # To demonstarate Pundit authorization
   resources :identities
@@ -23,8 +24,8 @@ Rails.application.routes.draw do
   # Soial profiles
   resources :social_profiles
 
-  # Frontend user (singular)
-  resource :user
+  # Frontend users
+  resources :users
 
   # Backend users
   resources :admins, only: [:show]

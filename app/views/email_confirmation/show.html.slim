@@ -4,7 +4,7 @@
   .col-sm-offset-2.col-sm-8
     .well
       .h4 Please enter your email address.
-      = simple_form_for(@identity, url: identity_finish_signup_path(@identity)) do |f|
+      = simple_form_for(@identity, url: email_confirmation_path(@identity), method: :patch) do |f|
         = f.input :email, autofocus: true, class: 'form-control'
         .form-group
           = f.submit 'Send confirmation email', class: 'btn btn-primary'
