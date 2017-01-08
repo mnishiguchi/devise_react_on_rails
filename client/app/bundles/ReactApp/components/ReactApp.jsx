@@ -22,10 +22,6 @@ export default class ReactApp extends React.Component {
   render() {
     const { isLoggedIn } = this.props
 
-    // NOTE: Do not make auth links react components because react will complain
-    // about data-target and data-toggle attributes as unknown props.
-    // The auth forms are hidden in the app/views/layouts/application template and
-    // a modal will open when a link is clicked.
     const logOutLink = (
       <a rel="nofollow" data-method="delete" href="/auth/logout">Log out</a>
     )
@@ -61,10 +57,13 @@ export default class ReactApp extends React.Component {
     )
   }
 
+  // NOTE: Do not make auth links react components because react will complain
+  // about data-target and data-toggle attributes as unknown props.
+  // The auth forms are hidden in the app/views/layouts/application template and
+  // a modal will open when a link is clicked.
   _openSignUpModal(e) {
     document.querySelector('#signup_modal.modal').classList.add('is-active')
   }
-
   _openLogInModal(e) {
     document.querySelector('#login_modal.modal').classList.add('is-active')
   }

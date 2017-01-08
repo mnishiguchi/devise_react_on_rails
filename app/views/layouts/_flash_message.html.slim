@@ -1,6 +1,7 @@
-/ This is to render a Bootstrap 3 alert according to the specified alert type.
+/ This is to render a Bulma notification according to the specified type.
 / - Devise:    notice, alert
 / - Bootstrap: success, info, warning, danger
+/ - Bulma:     ditto
 
 / The flash_message_spacer
 / - used to push down the navbar when flash_message is displayed.
@@ -9,17 +10,11 @@
 - flash.each do |type, message|
   - type = :success if notice
   - type = :danger  if alert
-  div[class="alert alert-#{type} flash_message"]
-    .container.text-centered
-      .close[aria-hidden="true" data-dismiss="alert" type="button"]
-        = fa_icon("times")
-      .message = message
-    .clearfix
+  div[class="notification is-#{type}"]
+    button.delete
+    = message
 
 javascript:
-
-  $('.flash_message').on('mouseover', function() {
-    setTimeout(function() {
-      $('.close').click();
-    }, 1000);
+  document.querySelector('.notification .delete').addEventListener('click', function(e) {
+    document.querySelector('.notification').style.display = 'none';
   })
