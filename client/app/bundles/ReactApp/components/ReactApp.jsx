@@ -32,12 +32,12 @@ export default class ReactApp extends React.Component {
 
     const authLinks = (
       <div>
-        <a onClick={e => this.openSignUpModal(e)}>Sign up</a>
+        <a onClick={e => this._openSignUpModal(e)}>Sign up</a>
         {' | '}
-        <a onClick={e => this.openLogInModal(e)}>Log in</a>
+        <a onClick={e => this._openLogInModal(e)}>Log in</a>
       </div>
     )
-    
+
     return (
       <div className="alert alert-info">
         {isLoggedIn ? logOutLink : authLinks}
@@ -54,22 +54,22 @@ export default class ReactApp extends React.Component {
             id="name"
             type="text"
             value={this.state.name}
-            onChange={(e) => this.updateName(e.target.value)}
+            onChange={(e) => this._updateName(e.target.value)}
           />
         </form>
       </div>
     )
   }
 
-  openSignUpModal(e) {
-    document.querySelector('#signup_modal__target.modal').classList.add('is-active')
+  _openSignUpModal(e) {
+    document.querySelector('#signup_modal.modal').classList.add('is-active')
   }
 
-  openLogInModal(e) {
-    document.querySelector('#login_modal__target.modal').classList.add('is-active')
+  _openLogInModal(e) {
+    document.querySelector('#login_modal.modal').classList.add('is-active')
   }
 
-  updateName(name) {
+  _updateName(name) {
     this.setState({ name })
   }
 }

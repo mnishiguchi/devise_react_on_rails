@@ -3,9 +3,12 @@
 
 <% if resource.errors.present? %>
   // After unsuccessful signup, re-render the form with error messages.
-  $('#signup_modal__target').html(
+  $('#signup_modal').html(
     '<%= j(render "layouts/signup_modal") %>'
   );
+  // Apply bulma styles to error inputs.
+  document.querySelector('.alert.alert-danger').classList.add('notification')
+  document.querySelector('.alert.alert-danger').classList.add('is-danger')
 <% else %>
   // Set a message.
   <% flash[:info] = I18n.t("devise.confirmations.send_instructions") %>

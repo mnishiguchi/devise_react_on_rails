@@ -25,20 +25,10 @@ html
       - if current_identity
         | Server side: You are logged in. (ID: #{current_identity.id})
       - else 
-        #signup_modal__target.modal
+        #signup_modal.modal
           = render "layouts/signup_modal"
-        #login_modal__target.modal
+        #login_modal.modal
           = render "layouts/login_modal"
     
     / = render 'layouts/site_footer'
     = render 'layouts/debug_box'
-
-    javascript:
-      // Bulma-modal
-      // 
-      document.querySelector('#signup_modal__target .modal-close').addEventListener('click', function(e) {
-        document.querySelector('#signup_modal__target').classList.remove('is-active')
-      })
-      document.querySelector('#login_modal__target .modal-close').addEventListener('click', function(e) {
-        document.querySelector('#login_modal__target').classList.remove('is-active')
-      })

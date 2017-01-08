@@ -153,13 +153,15 @@ footer {
 //---
 
 
-.help-block,
-.alert-danger {
-  color: #a9445b;
+.help-block {
+  color: #ff3860;
   font-weight: lighter;
   font-style: italic;
 }
 
+.has-error input {
+   border-color: #ff3860;
+}
 
 //---
 // Buttons

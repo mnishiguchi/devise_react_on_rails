@@ -1,3 +1,5 @@
-= link_to fa_icon("fw twitter"), identity_twitter_omniauth_authorize_path, class: "btn-omniauth-twitter"
-= link_to fa_icon("fw facebook"), identity_facebook_omniauth_authorize_path, class: "btn-omniauth-facebook"
-= link_to fa_icon("fw google"), identity_google_oauth2_omniauth_authorize_path, class: "btn-omniauth-google"
+nav.level
+  .level-left
+    = link_to fa_icon("fw twitter"), identity_twitter_omniauth_authorize_path, class: "level-item btn-omniauth-twitter"
+    = link_to fa_icon("fw facebook"), identity_facebook_omniauth_authorize_path, class: "level-item btn-omniauth-facebook"
+    = link_to fa_icon("fw google"), identity_google_oauth2_omniauth_authorize_path, class: "level-item btn-omniauth-google"
