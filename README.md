@@ -2,12 +2,11 @@
 
 ## Environment / gems
 
-```
-Ruby 2.3.0
-Rails 5.0.0
-Devise
-Omniauth
-```
+- Ruby 2.3.0
+- Rails 5.0.0
+- Devise + Omniauth
+- [Bulma](http://bulma.io/documentation/overview/start/)
+- [React on rails](https://github.com/shakacode/react_on_rails)
 
 ## Features
 - Has a central database table `Identities` for all the registration info.

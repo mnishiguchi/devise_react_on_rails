@@ -1,5 +1,10 @@
 - if Rails.env.development?
-  .well
+  .section 
     .container
-      = debug(params)
-      = link_to "My mailbox", letter_opener_web_path, class: "btn btn-primary"
+      .panel 
+        .panel-heading
+          | Debug box
+        .panel-block[style="overflow: auto;"]
+          small= debug(params)
+        .panel-block
+          = link_to "My mailbox", letter_opener_web_path, class: "button"

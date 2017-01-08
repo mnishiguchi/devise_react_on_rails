@@ -14,13 +14,11 @@ html
       script [src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"]
     
   body
-    / = render 'layouts/site_header'
-
     #flash_message
       = render 'layouts/flash_message'
 
-    .container
-      main = yield
+    main.container
+      = yield
 
       - if current_identity
         | Server side: You are logged in. (ID: #{current_identity.id})

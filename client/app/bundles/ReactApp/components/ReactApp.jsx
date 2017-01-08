@@ -23,36 +23,49 @@ export default class ReactApp extends React.Component {
     const { isLoggedIn } = this.props
 
     const logOutLink = (
-      <a rel="nofollow" data-method="delete" href="/auth/logout">Log out</a>
+      <div className="nav-center">
+        <a className="nav-item" rel="nofollow" data-method="delete" href="/auth/logout">Log out</a>
+      </div>
     )
 
     const authLinks = (
-      <div>
-        <a onClick={e => this._openSignUpModal(e)}>Sign up</a>
-        {' | '}
-        <a onClick={e => this._openLogInModal(e)}>Log in</a>
+      <div className="nav-center">
+        <a className="nav-item" onClick={e => this._openSignUpModal(e)}>Sign up</a>
+        <a className="nav-item" onClick={e => this._openLogInModal(e)}>Log in</a>
       </div>
     )
 
     return (
-      <div className="alert alert-info">
-        {isLoggedIn ? logOutLink : authLinks}
+      <div>
+        <nav className="nav">
+          <h1 className="nav-left">
+            <a className="nav-item">
+              Hello
+            </a>
+          </h1>
 
-        <h3>
-          Hello, {this.state.name || 'Unnamed'}! This is ReactApp.
-        </h3>
-        <hr />
-        <form >
-          <label htmlFor="name">
-            Say hello to:
-          </label>
-          <input
-            id="name"
-            type="text"
-            value={this.state.name}
-            onChange={(e) => this._updateName(e.target.value)}
-          />
-        </form>
+          {isLoggedIn ? logOutLink : authLinks}
+        </nav>
+
+        <div className="container">
+          <div className="notification">
+            <h3>
+              Hello, {this.state.name || 'Unnamed'}! This is ReactApp.
+            </h3>
+            <hr />
+            <form >
+              <label htmlFor="name">
+                Say hello to:
+              </label>
+              <input
+                id="name"
+                type="text"
+                value={this.state.name}
+                onChange={(e) => this._updateName(e.target.value)}
+              />
+            </form>
+          </div>
+        </div>
       </div>
     )
   }
