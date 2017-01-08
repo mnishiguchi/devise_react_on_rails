@@ -1,13 +1,15 @@
 = provide(:title, "Email confirmation")
 
-.row
-  .col-sm-offset-2.col-sm-8
-    .well
-      .h4 Please enter your email address.
-      = simple_form_for(@identity, url: email_confirmation_path(@identity)) do |f|
-        = f.input :email, autofocus: true, class: 'form-control'
-        .form-group
-          = f.submit 'Send confirmation email', class: 'btn btn-primary'
+.box
+  .media-content
+    .content
+      h2.title Email confirmation
+      p Please enter your email address.
+
+      = simple_form_for(@identity, url: email_confirmation_path(@identity), 
+        defaults: { input_html: { class: "input" }, wrapper_html: { class: "control" } }) do |f|
+        = f.input :email
+        = f.button :submit, 'Send confirmation email', class: 'button is-primary'
 
 javascript:
   // Clear the temp email.

@@ -1,4 +1,6 @@
-# Polymorphic Devise with JWT
+# React on Rails app with Devise and JWT authentication
+
+In this repo, I will experiment with Devise authentication for React on Rails app.
 
 ## Environment / gems
 
