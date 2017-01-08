@@ -3,6 +3,6 @@
 
 // Show error message using flash because session does not have Active Records errors.
 // Add margin in order to match that of signin_modal.
-$('#login_modal__errors').html('').append(
+$('#login_form__errors').html('').append(
   '<div class="notification is-danger" style="margin-bottom: 20px;"><%= j(I18n.t("devise.failure.invalid")) %></div>'
 );

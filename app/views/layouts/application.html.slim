@@ -23,10 +23,7 @@ html
       - if current_identity
         | Server side: You are logged in. (ID: #{current_identity.id})
       - else 
-        #signup_modal.modal
-          = render "layouts/signup_modal"
-        #login_modal.modal
-          = render "layouts/login_modal"
+        = render "layouts/auth_modal"
     
     / = render 'layouts/site_footer'
     = render 'layouts/debug_box'

@@ -70,17 +70,19 @@ export default class ReactApp extends React.Component {
     )
   }
 
-  // NOTE: Do not make auth links react components because react will complain
-  // about data-target and data-toggle attributes as unknown props.
-  // The auth forms are hidden in the app/views/layouts/application template and
-  // a modal will open when a link is clicked.
-  _openSignUpModal(e) {
-    document.querySelector('#signup_modal.modal').classList.add('is-active')
-  }
+  // NOTE: The auth forms are hidden in the app/views/layouts/application template
+  // and a modal will open when a link is clicked.
   _openLogInModal(e) {
-    document.querySelector('#login_modal.modal').classList.add('is-active')
+    document.querySelector('#auth_modal').classList.add('is-active')
+    document.querySelector('#signup_form').style.display = 'none'
+    document.querySelector('#login_form').style.display = 'block'
   }
-
+  _openSignUpModal(e) {
+    document.querySelector('#auth_modal').classList.add('is-active')
+    document.querySelector('#signup_form').style.display = 'block'
+    document.querySelector('#login_form').style.display = 'none'
+  }
+  
   _updateName(name) {
     this.setState({ name })
   }

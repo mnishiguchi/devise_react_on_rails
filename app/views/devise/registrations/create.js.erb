@@ -3,10 +3,10 @@
 
 <% if resource.errors.present? %>
   // After unsuccessful signup, re-render the form with error messages.
-  $('#signup_modal').html(
-    '<%= j(render "layouts/signup_modal") %>'
+  $('#signup_form').html(
+    '<%= j(render "layouts/signup_form") %>'
   );
-  // Apply bulma styles to error inputs.
+  // Apply Bulma classes to error inputs.
   document.querySelector('.alert.alert-danger').classList.add('notification')
   document.querySelector('.alert.alert-danger').classList.add('is-danger')
 <% else %>
