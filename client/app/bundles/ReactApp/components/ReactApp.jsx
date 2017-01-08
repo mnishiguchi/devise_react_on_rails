@@ -3,8 +3,8 @@ import React, { PropTypes as T } from 'react'
 export default class ReactApp extends React.Component {
 
   static propTypes = {
-    name:       T.string.isRequired,
-    isLoggedIn: T.bool.isRequired,
+    currentIdentity: T.object,
+    isLoggedIn:      T.bool,
   }
 
   /**
@@ -15,34 +15,42 @@ export default class ReactApp extends React.Component {
     super(props)
 
     this.state = {
-      name: this.props.name
+      name: this.props.currentIdentity && this.props.currentIdentity.email || "Stranger"
     }
   }
 
   render() {
-    const { isLoggedIn } = this.props
+    const { isLoggedIn, currentIdentity } = this.props
+    const { name } = this.state
 
     const logOutLink = (
-      <div className="nav-center">
-        <a className="nav-item" rel="nofollow" data-method="delete" href="/auth/logout">Log out</a>
+      <div className="nav-right is-flex-mobile">
+        <a className="nav-item is-tab" rel="nofollow" data-method="delete" href="/auth/logout">Log out</a>
       </div>
     )
 
     const authLinks = (
-      <div className="nav-center">
-        <a className="nav-item" onClick={e => this._openSignUpModal(e)}>Sign up</a>
-        <a className="nav-item" onClick={e => this._openLogInModal(e)}>Log in</a>
+      <div className="nav-right is-flex-mobile">
+        <a className="nav-item is-tab" onClick={e => this._openSignUpModal(e)}>Sign up</a>
+        <a className="nav-item is-tab" onClick={e => this._openLogInModal(e)}>Log in</a>
       </div>
     )
 
     return (
       <div>
         <nav className="nav">
-          <h1 className="nav-left">
+          <div className="nav-left is-flex-mobile">
             <a className="nav-item">
-              Hello
+              <div style={{fontSize: '2rem'}}>
+                ReactApp
+              </div>
+              <div>
+                { isLoggedIn ?
+                  <span className="tag is-success">Authenticated</span> :
+                  <span className="tag is-light">Unauthenticated</span> }
+                </div>
             </a>
-          </h1>
+          </div>
 
           {isLoggedIn ? logOutLink : authLinks}
         </nav>
@@ -50,19 +58,25 @@ export default class ReactApp extends React.Component {
         <div className="container">
           <div className="notification">
             <h3>
-              Hello, {this.state.name || 'Unnamed'}! This is ReactApp.
+              Hello{name ? `, ${name}` : ''}!
             </h3>
             <hr />
-            <form >
-              <label htmlFor="name">
-                Say hello to:
-              </label>
-              <input
-                id="name"
-                type="text"
-                value={this.state.name}
-                onChange={(e) => this._updateName(e.target.value)}
-              />
+
+            <form className="control is-horizontal">
+              <div className="control-label">
+                <label htmlFor="name" className="label">
+                  Say hello to:
+                </label>
+              </div>
+              <div className="control">
+                <input
+                  className="input"
+                  id="name"
+                  type="text"
+                  value={this.state.name}
+                  onChange={(e) => this._updateName(e.target.value)}
+                />
+              </div>
             </form>
           </div>
         </div>
@@ -82,7 +96,7 @@ export default class ReactApp extends React.Component {
     document.querySelector('#signup_form').style.display = 'block'
     document.querySelector('#login_form').style.display = 'none'
   }
-  
+
   _updateName(name) {
     this.setState({ name })
   }

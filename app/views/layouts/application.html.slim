@@ -20,10 +20,4 @@ html
     main.container
       = yield
 
-      - if current_identity
-        | Server side: You are logged in. (ID: #{current_identity.id})
-      - else 
-        = render "layouts/auth_modal"
-    
-    / = render 'layouts/site_footer'
     = render 'layouts/debug_box'

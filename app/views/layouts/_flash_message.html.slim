@@ -15,6 +15,9 @@
     = message
 
 javascript:
-  document.querySelector('.notification .delete').addEventListener('click', function(e) {
-    document.querySelector('.notification').style.display = 'none';
-  })
+  // Close the Bulma-notification.
+  if (document.querySelector('.notification .delete')) {
+    document.querySelector('.notification .delete').addEventListener('click', (e) => {
+      document.querySelector('.notification').style.display = 'none';
+    })
+  }

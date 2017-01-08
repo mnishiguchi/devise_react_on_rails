@@ -1,4 +1,16 @@
-h1.page-header
-  | react_pages#index
+header.header
+  .container
+    .notification
+      h1.title react_pages#index
+
+hr
 
 = react_component("ReactApp", props: @props, prerender: false)
+
+hr
+
+- if current_identity
+  | Server side: You are logged in. (ID: #{current_identity.id})
+- else 
+  | Server side: Currently unauthenticated.
+  = render "layouts/auth_modal"
