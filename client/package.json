@@ -9,7 +9,6 @@
   "scripts": {
     "build:test": "webpack --config webpack.config.js",
     "build:production:client": "NODE_ENV=production webpack --config webpack.config.js",
-    "build:production": "npm run build:production:client && npm run build:production:server",
     "build:development": "webpack -w --config webpack.config.js"
   },
   "cacheDirectories": ["node_modules", "client/node_modules"],
